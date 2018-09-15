@@ -29,7 +29,8 @@ public class Jeopardy implements ActionListener {
 	private JButton firstButton;
 	private JButton secondButton;
 	private JButton thirdButton, fourthButton;
-
+	private String prize = "$100";
+	private String prize2 = "$500";
 	private JPanel quizPanel;
 	int score = 0;
 	JLabel scoreBox = new JLabel("0");
@@ -55,7 +56,7 @@ public class Jeopardy implements ActionListener {
 		// 5. Add the quizPanel to the frame
 		frame.add(quizPanel);
 		// 6. Use the createButton method to set the value of firstButton
-		createButton("firstButton");
+		firstButton = createButton(prize);
 		// 7. Add the firstButton to the quizPanel
 		quizPanel.add(firstButton);
 		// 8. Write the code inside the createButton() method below. Check that your
@@ -63,7 +64,7 @@ public class Jeopardy implements ActionListener {
 
 		// 9. Use the secondButton variable to hold a button using the createButton
 		// method
-		createButton("secondButton");
+		secondButton = createButton(prize2);
 		// 10. Add the secondButton to the quizPanel
 		quizPanel.add(secondButton);
 		// 11. Add action listeners to the buttons (2 lines of code)
@@ -108,7 +109,7 @@ public class Jeopardy implements ActionListener {
 		JButton buttonPressed = (JButton) arg0.getSource();
 		// If the buttonPressed was the firstButton
 		if (buttonPressed == firstButton) {
-			askQuestion();
+			askQuestion("The biggest failure to ever live","who is jake paul?",100);
 		}
 		// Call the askQuestion() method
 
@@ -116,7 +117,9 @@ public class Jeopardy implements ActionListener {
 		// change.
 
 		// Or if the buttonPressed was the secondButton
-
+		else if( buttonPressed == secondButton) {
+			askQuestion("The makers of the dorito","who is the illuminati?", 500);
+		}
 		// Call the askQuestion() method with a harder question
 
 		// Clear the button text (set the button text to nothing)
@@ -125,17 +128,25 @@ public class Jeopardy implements ActionListener {
 
 	private void askQuestion(String question, String correctAnswer, int prizeMoney) {
 		// Remove this temporary message
-		JOptionPane.showInputDialog("");
+		String an = JOptionPane.showInputDialog(question);
 		// Use a pop up to ask the user the question
 
 		// If the answer is correct
-
+		if (an.equalsIgnoreCase(correctAnswer)) {
+			score = score + prizeMoney;
+			updateScore();
+			JOptionPane.showMessageDialog(null, "You are correct!");
+		}
 		// Increase the score by the prizeMoney
-
+		else {
+			score = score - prizeMoney;
+			JOptionPane.showMessageDialog(null, "You are incorrect, the correct answer was " + correctAnswer);
+			updateScore();
+		}
 		// Call the updateScore() method
 
 		// Pop up a message to tell the user they were correct
-
+		
 		// Otherwise
 
 		// Decrement the score by the prizeMoney
