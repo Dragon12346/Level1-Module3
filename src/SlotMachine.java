@@ -44,48 +44,50 @@ public JLabel loadImageFromComputer(String fileName) {
 @Override
 public void actionPerformed(ActionEvent e) {
 	// TODO Auto-generated method stub
+	panel.removeAll();
+	panel.add(button);
 	int rand = new Random().nextInt(3);
 	if (rand == 0) {
 		label = loadImageFromComputer("apple.jpg");
 	}
 	
-	if (rand == 0) {
-		label2 = loadImageFromComputer("orange.jpg");
+	if (rand == 1) {
+		label = loadImageFromComputer("orange.jpg");
 	}
 	
-	if (rand == 0) {
-		label3 = loadImageFromComputer("Cherry.jpg");
+	if (rand == 2) {
+		label = loadImageFromComputer("Cherry.jpg");
 	}
 	
 	int rand2 = new Random().nextInt(3);
 	if (rand2 == 0) {
-		label = loadImageFromComputer("apple.jpg");
+		label2 = loadImageFromComputer("apple.jpg");
 	}
 	
-	if (rand2 == 0) {
+	if (rand2 == 1) {
 		label2 = loadImageFromComputer("orange.jpg");
 	}
 	
-	if (rand2 == 0) {
-		label3 = loadImageFromComputer("Cherry.jpg");
+	if (rand2 == 2) {
+		label2 = loadImageFromComputer("Cherry.jpg");
 	}
 	
 	int rand3 = new Random().nextInt(3);
 	if (rand3 == 0) {
-		label = loadImageFromComputer("apple.jpg");
+		label3 = loadImageFromComputer("apple.jpg");
 	}
 	
-	if (rand3 == 0) {
-		label2 = loadImageFromComputer("orange.jpg");
+	if (rand3 == 1) {
+		label3 = loadImageFromComputer("orange.jpg");
 	}
 	
-	if (rand3 == 0) {
+	if (rand3 == 2) {
 		label3 = loadImageFromComputer("Cherry.jpg");
 	}
 	
 	panel.add(label);
 	panel.add(label2);
 	panel.add(label3);
-	
+	frame.pack();
 }
 }
