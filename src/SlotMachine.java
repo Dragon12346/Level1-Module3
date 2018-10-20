@@ -8,6 +8,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 public class SlotMachine implements ActionListener {
@@ -89,5 +90,8 @@ public void actionPerformed(ActionEvent e) {
 	panel.add(label2);
 	panel.add(label3);
 	frame.pack();
+	if (rand3 == 1 && rand2 == 1 && rand == 1 || rand3 == 2 && rand2 == 2 && rand == 2 || rand3 == 0 && rand2 == 0 && rand == 0) {
+		JOptionPane.showMessageDialog(null, "You Win!");
+	}
 }
 }
