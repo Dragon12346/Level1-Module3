@@ -1,3 +1,4 @@
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Date;
@@ -7,6 +8,8 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+
+
 
 public class whackAMole implements ActionListener {
 	static JFrame frame = new JFrame();
@@ -36,9 +39,12 @@ public class whackAMole implements ActionListener {
 			JButton button = new JButton();
 			panel.add(button);
 			if (AIA == i) {
+				button.setOpaque(true);
 				System.out.println(" " + i + " " + AIA);
 				button.setText("Mole!");
 				mButton = button;
+				button.setBackground(Color.DARK_GRAY);
+				button.setForeground(new Color(0x7395));
 			}
 			button.addActionListener(this);		
 		}
