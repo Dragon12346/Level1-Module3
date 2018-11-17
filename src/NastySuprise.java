@@ -1,3 +1,5 @@
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.net.MalformedURLException;
 import java.net.URL;
 
@@ -6,10 +8,11 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JPanel;
 
-public class NastySuprise {
+public class NastySuprise implements ActionListener {
 	JFrame frame = new JFrame();
-	JLabel label = new JLabel();
+	JPanel panel = new JPanel();
 	JButton button = new JButton();
 	JButton button2 = new JButton();
 public static void main(String[] args) {
@@ -19,11 +22,14 @@ public static void main(String[] args) {
 
 public void play() {
 	frame.setVisible(true);
-	frame.add(label);
-	label.add(button);
-	label.add(button2);
+	frame.add(panel);
+	panel.add(button);
+	panel.add(button2);
 	button.setText("Trick");
 	button2.setText("Treat");
+	button.addActionListener(this);
+	button2.addActionListener(this);
+	frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	frame.pack();
 }
 private void showPictureFromTheInternet(String imageUrl) {
@@ -31,12 +37,24 @@ private void showPictureFromTheInternet(String imageUrl) {
          URL url = new URL(imageUrl);
          Icon icon = new ImageIcon(url);
          JLabel imageLabel = new JLabel(icon);
-         JFrame frame = new JFrame();
-         frame.add(imageLabel);
-         frame.setVisible(true);
-         frame.pack();
+         JFrame framee = new JFrame();
+         framee.add(imageLabel);
+         framee.setVisible(true);
+         framee.pack();
     } catch (MalformedURLException e) {
          e.printStackTrace();
     }
+}
+
+@Override
+public void actionPerformed(ActionEvent e) {
+	// TODO Auto-generated method stub
+	JButton abc = (JButton) e.getSource();
+	if (abc == button) {
+		showPictureFromTheInternet("https://i.ytimg.com/vi/nu77ETGoxAY/maxresdefault.jpg");
+	}
+	if (abc == button2) {
+		showPictureFromTheInternet("https://i.pinimg.com/originals/f3/ea/f5/f3eaf58911921390ad8ed506b13ca6b2.jpg");
+	}
 }
 }
